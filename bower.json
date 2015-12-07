@@ -1,0 +1,8 @@
+{
+  "name": "napp-boilerplate",
+  "dependencies": {
+    "angular": ">=1.4.8",
+    "angular-ui-router": ">=0.2.15",
+    "angular-bootstrap": ">=0.14.3"
+  }
+}

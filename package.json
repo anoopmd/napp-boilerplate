@@ -1,0 +1,58 @@
+{
+  "name": "napp-boilerplate",
+  "description": "WIP boilerplate for node web applications.",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=0.10.36",
+    "npm": ">=1.3.6"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "start": "node bin/www",
+    "build": "gulp build",
+    "build.prd": "gulp production"
+  },
+  "dependencies": {
+    "body-parser": "~1.12.0",
+    "bunyan": "^1.4.0",
+    "compression": "^1.4.4",
+    "config": "^1.12.0",
+    "connect-timeout": "^1.6.2",
+    "cookie-parser": "~1.3.4",
+    "debug": "~2.1.1",
+    "express": "~4.12.2",
+    "express-bunyan-logger": "^1.1.1",
+    "jade": "~1.9.2",
+    "js-yaml": "^3.3.0",
+    "lodash": "^3.7.0",
+    "moment": "^2.10.2",
+    "node-uuid": "^1.4.3",
+    "response-time": "^2.3.1",
+    "serve-favicon": "~2.2.0",
+    "yargs": "^3.8.0"
+  },
+  "devDependencies": {
+    "bower": "^1.5.2",
+    "gulp": "^3.8.11",
+    "gulp-rimraf": "^0.2.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-count": "^0.1.0",
+    "gulp-filter": "^2.0.2",
+    "gulp-if": "^1.2.5",
+    "gulp-jshint": "^1.10.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-minify-css": "^1.1.0",
+    "gulp-minify-html": "^1.0.2",
+    "gulp-ng-html2js": "^0.2.0",
+    "gulp-nodemon": "^1.0.5",
+    "gulp-replace": "^0.5.3",
+    "gulp-stylus": "^2.0.1",
+    "gulp-uglify": "^1.2.0",
+    "gulp-wrap": "^0.11.0",
+    "jshint-stylish": "^1.0.1",
+    "main-bower-files": "^2.7.0",
+    "nib": "^1.1.0"
+  }
+}

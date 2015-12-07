@@ -1,0 +1,26 @@
+env: dev
+debug: true
+
+server:
+  port: 5555
+
+paths:
+  root: ""
+  public: "/public"
+  views: "/src/server/views"
+
+app:
+  timeout: "30s"
+
+logger:
+  level: "info"
+  format: ":method :url HTTP/:http-version :status-code :response-time ms"
+  excludes:
+    - "user-agent"
+    - "body"
+    - "short-body"
+    - "response-hrtime"
+    - "req-headers"
+    - "res-headers"
+    - "req"
+    - "res"

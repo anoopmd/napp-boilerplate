@@ -1,0 +1,53 @@
+/* Global styles */
+
+body
+  padding-top 70px
+  padding-bottom 30px
+
+/* App styles */
+
+.app
+
+  color #000
+
+  .border-bottom
+    border-bottom 1px solid $table-border-color;
+
+  .border-top
+    border-top 1px solid $table-border-color;
+
+  .form-buttons
+    clear both
+    border-top 1px solid #ddd
+    margin-top 15px
+    padding 15px 15px 5px
+    text-align right
+
+  form
+
+    .has-error
+      .selectize-input
+        border 1px solid $form-error
+
+  table.table-bottom-bordered
+    tr
+      border-bottom 1px solid #eee;
+  table.table-bottom-bordered
+    tr:last-child
+      border-bottom none;
+
+/* Panel styles */
+
+.scroll-me
+  overflow scroll
+
+/* Selectize styles */
+
+.ui-select-search
+  padding 6px 10px
+
+.ui-select-container
+  height 31px
+
+.ui-select-container-modal-fix
+  z-index: 200000 !important
