@@ -12,7 +12,7 @@ angular.module('app.contact', [
         views: {
           app: {
             controller: 'ContactCtrl',
-            templateUrl: 'about/about.tpl.html'
+            templateUrl: 'contact/contact.tpl.html'
           }
         }
       });
