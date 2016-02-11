@@ -1,0 +1,34 @@
+{
+  "name": "napp-boilerplate-customer-module",
+  "description": "Customer Module",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=0.10.36",
+    "npm": ">=1.3.6"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "mongoose": "^4.4.3",
+    "validator": "^4.8.0"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.0",
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-count": "^0.2.0",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-jshint": "^2.0.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.1.0",
+    "mocha": "^2.4.5",
+    "mockery": "^1.4.0",
+    "sinon": "^1.17.3",
+    "underscore": "^1.8.3"
+  }
+}

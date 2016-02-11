@@ -1,0 +1,117 @@
+'use strict';
+
+var assert = require('assert');
+var chai = require('chai');
+var mockery = require('mockery');
+var sinon = require('sinon');
+var _ = require('underscore');
+
+var expect = chai.expect;
+
+describe('Customer Validator (updateRequest)', function(){
+  var validator, customerOptions;
+
+  beforeEach(function(done){
+    mockery.enable({
+      warnOnReplace: false,
+      warnOnUnregistered: false,
+      useCleanCache: true
+    });
+
+    customerOptions = {
+      'id' : '56a1fdcf1774175c0e071611',
+      'firstName':'James',
+      'lastName':'Bond',
+      'email':'jb@gmail.com',
+      'dob':'1985-1-1',
+      'address':'#47, Brooks Suite, LA',
+      'phone':'9876543210'
+    };
+
+    validator = require('../../../lib/validators/customer');
+    done();
+  });
+
+  afterEach(function(){
+    mockery.deregisterAll();
+    mockery.disable();
+  });
+
+  it('should return error if is invalid', function(done){
+    var id = '56a1fdcf1774175c0e0716**'; // Invalid chars at the end
+
+    validator.validateUpdateRequest({id : id}, function(err){
+      expect(err).to.be.an('object');
+
+      expect(err.errors[0].message).to.be.equal('Invalid Id');
+      expect(err.errors[0].attr).to.be.equal('id');
+      done();
+    });
+  });
+
+  it('should return error if the first name is missing', function(done){
+    customerOptions.firstName = null;
+
+    validator.validateUpdateRequest(customerOptions, function(err){
+      expect(err).to.be.an('object');
+      expect(err.message).to.be.equal('Could not update the customer');
+
+      expect(err.errors[0].message).to.be.equal('First Name is empty');
+      expect(err.errors[0].attr).to.be.equal('firstName');
+      done();
+    });
+  });
+
+  it('should return error if the last name is missing', function(done){
+    customerOptions.lastName = null;
+
+    validator.validateUpdateRequest(customerOptions, function(err){
+      expect(err).to.be.an('object');
+      expect(err.message).to.be.equal('Could not update the customer');
+
+      expect(err.errors[0].message).to.be.equal('Last Name is empty');
+      expect(err.errors[0].attr).to.be.equal('lastName');
+      done();
+    });
+  });
+
+  it('should return error if the email is missing', function(done){
+    customerOptions.email = null;
+
+    validator.validateUpdateRequest(customerOptions, function(err){
+      expect(err).to.be.an('object');
+      expect(err.message).to.be.equal('Could not update the customer');
+
+      expect(err.errors[0].message).to.be.equal('Email is invalid');
+      expect(err.errors[0].attr).to.be.equal('email');
+      done();
+    });
+  });
+
+  it('should return multiple error descriptions when more than one param is missing', function(done){
+    validator.validateUpdateRequest({}, function(err){
+      expect(err).to.be.an('object');
+      expect(err.message).to.be.equal('Could not update the customer');
+
+      expect(err.errors[0].message).to.be.equal('Invalid Id');
+      expect(err.errors[0].attr).to.be.equal('id');
+
+      expect(err.errors[1].message).to.be.equal('First Name is empty');
+      expect(err.errors[1].attr).to.be.equal('firstName');
+
+      expect(err.errors[2].message).to.be.equal('Last Name is empty');
+      expect(err.errors[2].attr).to.be.equal('lastName');
+
+      expect(err.errors[3].message).to.be.equal('Email is invalid');
+      expect(err.errors[3].attr).to.be.equal('email');
+      done();
+    });
+  });
+
+  it('should return null if all parameters are valid', function(done){
+    validator.validateUpdateRequest(customerOptions, function(err){
+      expect(err).to.equal(null);
+      done();
+    });
+  });
+});
